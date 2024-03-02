@@ -1,0 +1,44 @@
+{% extends 'partials/body.html' %}
+{% load static %}
+
+{% block contenido %}
+<title>Funda Un Lugar - Política</title>
+<body style="background-color: #f0f8ff">
+    <div>      
+        <div class="p-1 m-1 mx-auto m-lg-5">
+            <p class="text-center fs-2" style="color: #008">POLÍTICA DE SEGURIDAD</p>
+        </div>
+        <div>
+            <p class="fs-3 m-lg-5" style="color: #008">¿Qué es la política de seguridad del sistema?</p>
+            <div style="text-align: center;">
+                <img src="{% static 'img/pregunta1.JPG' %}" width="300" alt="">
+                <p class="m-lg-3 mx-lg-auto " style="color: #008">Foto tomada de stock.adobe.com - libre derecho de autor.</p>
+             </div>
+            <p class="m-lg-5 fs-5 p-3" style="color: #008">La política de seguridad del sistema, consiste en una norma y/o directriz, el cual permite garantizar la confidencialidad, integridad y
+                disponibilidad de la información con el fin de minimizar riesgos de los cuales se pueda ser vulnerable el sistema de información de registro de datos de los Beneficiarios de la Fundación
+                Un Lugar Donde Puedes Crecer, frente a alguna amenaza cibernética por el cual se pueda afectar este sistema. Esta política de seguridad informática consiste en los siguientes puntos a tener 
+                en cuenta por el usuario final que vaya utilizar el sistema de información con previos permisos otorgados por el administrador de este sistema de información.</p>
+            <p class="m-lg-5 fs-5 p-3" style="color: #008">Esta política de seguridad informática consiste en los siguientes puntos a tener en cuenta por el usuario final que vaya utilizar el sistema
+               de información con previos permisos otorgados por el administrador de este sistema de información.</p>
+        </div> 
+        <div>
+            <p class="fs-3 m-lg-5 p-3" style="color: #008">Realizar buenas prácticas.</p>
+            <div style="text-align: center;">
+                <img src="{% static 'img/contraseña2.JPG' %}" width="400" alt="">
+                <p class="m-lg-3 mx-lg-auto " style="color: #008">Foto tomada de stock.adobe.com - libre derecho de autor.</p>
+             </div>
+            <p class="m-lg-5 fs-5" style="color: #008">Cada 3 meses se debe realizar el cambio de la contraseña de ingreso al sistema, la contraseña debe contener al menos 12 caracteres de los cuales 8 deben 
+                ser numéricos, 2 letras en mayúsculas, una letra en minúscula y un carácter especial por ejemplo * @
+                ya que al ser una contraseña larga, permite tener mayor seguridad y asi evitar que el sistema sea vulnerado.</p>
+            <p class="m-lg-5 fs-5" style="color: #008">Cuando se crea una cuenta de usuario por el administrador del sistema, debe otorgarle permisos al usuario final, ingresando en la pestaña Administrador
+                del sistema por ejemplo editar un beneficiario o eliminar datos y el administrador del sistema debe brindarle una capacitación de acuerdo al manual de usuario disponible y descargable en la 
+                pestaña Ayuda con el fin de que el usuario final que va a manipular este sistema de información tenga conocimientos previos de su correcta manipulación.
+            </p>
+        </div>
+        
+      </div>                 
+        
+      </body>
+    </html>
+{% endblock contenido %}
+

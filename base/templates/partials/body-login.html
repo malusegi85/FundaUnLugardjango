@@ -1,0 +1,48 @@
+{% load static %}
+{% load bootstrap5 %}
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">  
+
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">        
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'fontawesome-free/css/all.min.css' %}">    
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->     
+    <link rel="shortcut icon" href="{% static 'img/logocabeza.jpg' %}">
+    
+    <title>Funda Un Lugar - Login</title>
+    
+</head>
+<style>
+
+    body{
+        background: #f0f8ff;
+        background: linear-gradient(to rigth, #768bcf, #a1add4);
+    }
+    .bg{
+        background-image: url(static/img/login.jpg); 
+        background-position: center;
+                         
+     }
+         
+</style>
+
+
+{% block cuerpo %}
+
+{% endblock cuerpo %}
+
+</html>

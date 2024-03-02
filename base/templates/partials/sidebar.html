@@ -1,0 +1,196 @@
+{% load static %}
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-blue-blue elevation-1" style="background-color:  #c7dcec">
+   
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user panel (optional) -->
+    <div class="user-panel d-flex">        
+      <div class="image">
+        <img src="{{MEDIA_URL}}{{image_user}}" class="img-circle w-50" alt="User Image">
+        <Strong class="info text-blue">{{usuario_actual.first_name}}</Strong>
+      </div>
+    </div>
+     
+     <!-- Brand Logo -->
+     <a href="http://fundacionunlugar.com/" class="brand-link" span class="font-weight-blue">Funda</span>
+      <img src="{% static 'img/logocabeza.jpg' %}" alt="Funda Logo">    
+    </a>
+ 
+    <!-- SidebarSearch Form -->
+    <div class="form-inline">
+      <div class="input-group" data-widget="sidebar-search">
+        <input class="form-control form-control-sidebar" type="search" placeholder="Buscar.." aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-sidebar">
+            <i class="fas fa-search fa-fw"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+             with font-awesome or any other icon font library -->
+        
+            <!-- EMPIEZA USUARIOS -->
+        <li class="nav-header">USUARIOS</li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-user-circle"></i>
+            <p>
+              Usuarios
+              <i class="fas fa-angle-left right"></i>
+
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{% url 'usuarios' %}" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>Ver Usuarios</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'usuarios-crear' %}" class="nav-link">
+                <i class="nav-icon fas fa-user-plus"></i>
+                <p>Crear Usuario</p>
+              </a>
+            </li>
+            
+          </ul>
+        </li>
+              
+         <!-- Aqui termina el codigo de USUARIOS -->
+
+         <!-- EMPIEZA BENEFICIARIOS -->
+         <li class="nav-header">BENEFICIARIOS</li>
+         <li class="nav-item">
+           <a href="#" class="nav-link">
+             <i class="nav-icon fas fa-user-circle"></i>
+             <p>
+               Beneficiarios
+               <i class="fas fa-angle-left right"></i>
+ 
+             </p>
+           </a>
+           <ul class="nav nav-treeview">
+             <li class="nav-item">
+               <a href="{% url 'beneficiario' %}" class="nav-link">
+                 <i class="nav-icon fas fa-users"></i>
+                 <p>Ver Beneficiarios</p>
+               </a>
+             </li>
+             <li class="nav-item">
+               <a href="{% url 'beneficiario-crear' %}" class="nav-link">
+                 <i class="nav-icon fas fa-user-plus"></i>
+                 <p>Crear Beneficiario</p>
+               </a>
+             </li>
+             
+           </ul>
+         </li>
+                <!-- Aqui termina el codigo de BENEFICIARIOS -->
+
+        <!-- EMPIEZA ACUDIENTES -->
+        <li class="nav-header">ACUDIENTES</li>
+        <li class="nav-item">
+          <a href="#" class="nav-link">
+            <i class="nav-icon fas fa-user-circle"></i>
+            <p>
+              Acudientes
+              <i class="fas fa-angle-left right"></i>
+
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a href="{% url 'acudiente' %}" class="nav-link">
+                <i class="nav-icon fas fa-users"></i>
+                <p>Ver Acudientes</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'acudiente-crear' %}" class="nav-link">
+                <i class="nav-icon fas fa-user-plus"></i>
+                <p>Crear Acudiente</p>
+              </a>
+            </li>
+            
+          </ul>
+        </li>
+          <!-- Aqui termina el codigo de ACUDIENTES -->
+
+          <!-- EMPIEZA PADRINOS -->
+          <li class="nav-header">PADRINOS</li>
+          <li class="nav-item">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-user-circle"></i>
+              <p>
+                Padrinos
+                <i class="fas fa-angle-left right"></i>
+  
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{% url 'padrino' %}" class="nav-link">
+                  <i class="nav-icon fas fa-users"></i>
+                  <p>Ver Padrinos</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{% url 'padrino-crear' %}" class="nav-link">
+                  <i class="nav-icon fas fa-user-plus"></i>
+                  <p>Crear Padrino</p>
+                </a>
+              </li>
+              
+            </ul>
+          </li>
+         <!-- Aqui termina el codigo de PADRINOS -->
+
+         <!-- EMPIEZA REFERENCIAS -->
+         <li class="nav-header">REFERENCIAS</li>
+         <li class="nav-item">
+           <a href="#" class="nav-link">
+             <i class="nav-icon fas fa-user-circle"></i>
+             <p>
+               Referencias
+               <i class="fas fa-angle-left right"></i>
+ 
+             </p>
+           </a>
+           <ul class="nav nav-treeview">
+             <li class="nav-item">
+               <a href="{% url 'referencia' %}" class="nav-link">
+                 <i class="nav-icon fas fa-users"></i>
+                 <p>Ver Referencias</p>
+               </a>
+             </li>
+             <li class="nav-item">
+               <a href="{% url 'referencia-crear' %}" class="nav-link">
+                 <i class="nav-icon fas fa-user-plus"></i>
+                 <p>Crear Referencia</p>
+               </a>
+             </li>
+             
+           </ul>
+         </li>
+        <!-- Aqui termina el codigo de REFERENCIAS -->
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>
+<!-- Control Sidebar -->
+<aside class="control-sidebar control-sidebar-dark">
+  <!-- Control sidebar content goes here -->
+</aside>
+<!-- /.control-sidebar -->

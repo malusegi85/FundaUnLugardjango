@@ -1,0 +1,127 @@
+{% extends 'partials/body.html' %}
+{% load static %}
+{% block contenido %}
+<title>Funda Un Lugar - Beneficiarios</title>
+<table id="example1" class="table table-responsive-flex-column table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+        <th scope="col">Documento</th>
+        <th scope="col">Tipo de documento</th>
+        <th scope="col">Nombres</th>
+        <th scope="col">Apellidos</th> 
+        <th scope="col">Programa</th>                                    
+        <th scope="col">Género</th>
+        <th scope="col">Estado del usuario</th>
+        <th scope="col">Fecha de nacimiento</th>   
+        <th scope="col">Lugar de nacimiento</th>                                
+        <th scope="col">Teléfono y/o celular</th>                               
+        <th>Acciones</th><!--Tenia hace meses por videos del internet el siguiente codigo acciones 
+            que es donde se visualiza el boton eliminar y editar, al momento de registrar un beneficiario se 
+            desaparecia la datatable y al momento de eliminar los datos aparecia la datatable era porque 
+            este codigo estaba malo y la tabla no estaba cerrada por completo pues con esta parte 
+            de codigo <th colspan="2">Acciones</th> la tabla de datos no estaba cerrada por completo al final
+            es porque al verificar la tabla usuarios donde era que si funciona correctamente la datatable 
+            de adminlte con este codigo <th>Acciones</th> el cual borre el anterior y con este codigo 
+            si funciona correctamente la datatable y se nota que la tabla datos vacia esta completamente
+            cerrada al final, gracias Dios mio... este codigo es el que funciona<th>Acciones</th> -->
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for beneficiario in beneficiarios %}                            
+    <tr>
+        <td>{{beneficiario.documento}}</td>
+        <td>{{beneficiario.tipoDocumento}}</td>
+        <td>{{beneficiario.nombres}}</td>
+        <td>{{beneficiario.apellidos}}</td>
+        <td>{{beneficiario.programas}}</td>
+        <td>{{beneficiario.genero}}</td>
+        <td>{{beneficiario.estadoUsuario}}</td>
+        <td>{{beneficiario.fechaNacimiento}}</td>
+        <td>{{beneficiario.lugarNacimiento}}</td>                                                                                          
+        <td>{{beneficiario.telefono}}</td> 
+        <td><a class="btn btn-primary" href="{% url 'beneficiario-editar' beneficiario.id  %}" title="Editar"><i class="fas fa-edit"></i></a>
+            <a class="btn btn-danger" href="{% url 'beneficiario-eliminar' beneficiario.id  %}" title="Eliminar"><i class="fas fa-trash-alt"></i></a>
+        </td> 
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+
+{% endblock contenido %}
+
+
+{% block javascript %}
+    
+    <!-- DataTables lenguaje en Español - contiene cuadro de busqueda y filtro
+         y tres botones que son para descargar información en PDF, Excel y el boton 
+         para imprimir la información-->
+
+    <script>
+        $(document).ready(function() {
+            $('#example1').DataTable({ 
+                language: {
+                    "sProcessing":     "Procesando...",
+                    "sLengthMenu":     "Mostrar _MENU_ registros",
+                    "sZeroRecords":    "No se encontraron resultados",
+                    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix":    "",
+                    "sSearch":         "Buscar:",
+                    "sUrl":            "",
+                    "sInfoThousands":  ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst":    "Primero",
+                        "sLast":     "Último",
+                        "sNext":     "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "excel": "Exportar a Excel",
+                        "pdf": "Exportar a PDF",
+                        "print": "Imprimir"
+                    }
+                },
+                responsive: true,
+                dom: 'Bfrtilp',
+                buttons: [
+                    {
+                        extend: 'excelHtml5',
+                        text: '<i class="fas fa-file-excel"></i> ',
+                        titleAttr: 'Exportar a Excel',
+                        title: 'Fundación Un Lugar Donde Puedes Crecer',
+                        messageTop: 'Beneficiarios',
+                        className: 'btn btn-success'                   
+                        
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        text: '<i class="fas fa-file-pdf"></i> ',
+                        orientation: 'landscape',
+                        titleAttr: 'Exportar a PDF',
+                        title: 'Fundación Un Lugar Donde Puedes Crecer',
+                        messageTop: 'Beneficiarios',
+                        className: 'btn btn-danger'
+                    },
+                    {
+                        extend: 'print',
+                        text: '<i class="fa fa-print"></i> ',
+                        orientation: 'landscape',
+                        titleAttr: 'Imprimir',
+                        title: 'Fundación Un Lugar Donde Puedes Crecer',
+                        messageTop: 'Beneficiarios',
+                        className: 'btn btn-info'
+                    },
+                ]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-12:eq(0)');
+        });
+    </script>
+{% endblock javascript %}

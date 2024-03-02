@@ -1,0 +1,22 @@
+{% extends 'partials/body.html' %}
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+{% load crispy_forms_tags %}
+
+
+{% block contenido %}
+<title>Un lugar - Registro</title>
+<body style="background-color: #eff3f7">
+               
+         <div style="background-color: #cfe2f3" class="container">               
+           <form action="" method="POST" style="color: #008;" enctype="multipart/form-data" >
+              {{form|crispy}}
+              {% csrf_token %}                   
+              <input class="btn-outline-success" type="submit"value="Registrar">                    
+              
+           </form>
+         </div>
+</body>
+
+{% endblock contenido %}

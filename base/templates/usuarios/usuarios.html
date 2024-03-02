@@ -1,0 +1,122 @@
+{% extends 'partials/body.html' %}
+{% load static %}
+{% block contenido %}
+<title>Funda Un Lugar - Usuarios</title>
+<table id="example1" class="table table-responsive-flex-column table-bordered table-striped table-hover">
+  <thead>
+    <tr>
+      <th class="col text-center">Foto</th>
+      <th scope="col">Nombres</th>
+      <th scope="col">Apellidos</th>
+      <th scope="col">Tipo de Documento</th>
+      <th scope="col">Documento</th>     
+      <th scope="col">Teléfono</th>
+      <th scope="col">Dirección</th>
+      <th scope="col">Fecha de Nacimiento</th>
+      <th scope="col">Rol</th>
+      <th scope="col">Estado</th>      
+      <th>Acciones</th>
+
+    </tr>
+  </thead>
+  <tbody>
+
+    {% for usuario in usuarios %}
+    <tr>
+
+      {% if usuario.estado != '3' %}
+      <td class="align middle text-center"><img class="rounded-circle" src="{{ MEDIA_URL }}{{usuario.foto.url}}" alt="" width="50" height="50"></td>
+      <td >{{usuario.nombres}}</td>
+      <td>{{usuario.apellidos}}</td>
+      <td>{{usuario.tipoDocumento}}</td>
+      <td>{{usuario.documento}}</td>      
+      <td>{{usuario.telefono}}</td>
+      <td>{{usuario.direccion}}</td>
+      <td>{{usuario.fecha_nacimiento}}</td>
+      <td>{{usuario.rol}}</td>
+      <td>{{usuario.estado}}</td>       
+      <td><a class="btn btn-primary" href="{% url 'usuarios-editar' usuario.id  %}" title="Editar"><i class="fas fa-edit"></i></a>
+        <a class="btn btn-danger" href="{% url 'usuarios-eliminar' usuario.id  %}" title="Eliminar"><i class="fas fa-trash-alt"></i></a>
+      </td>
+      {% endif %}
+
+    </tr>
+    {% endfor %}
+
+  </tbody>
+</table>
+{% endblock contenido %}
+
+{% block javascript %}
+    
+    <!-- DataTables lenguaje en Español - contiene cuadro de busqueda y filtro
+         y tres botones que son para descargar información en PDF, Excel y el boton 
+         para imprimir la información-->
+
+    <script>
+        $(document).ready(function() {
+            $('#example1').DataTable({ 
+                language: {
+                    "sProcessing":     "Procesando...",
+                    "sLengthMenu":     "Mostrar _MENU_ registros",
+                    "sZeroRecords":    "No se encontraron resultados",
+                    "sEmptyTable":     "Ningún dato disponible en esta tabla",
+                    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix":    "",
+                    "sSearch":         "Buscar:",
+                    "sUrl":            "",
+                    "sInfoThousands":  ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst":    "Primero",
+                        "sLast":     "Último",
+                        "sNext":     "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "excel": "Exportar a Excel",
+                        "pdf": "Exportar a PDF",
+                        "print": "Imprimir"
+                    }
+                },
+                responsive: true,
+                dom: 'Bfrtilp',
+                buttons: [
+                    {
+                        extend: 'excelHtml5',
+                        text: '<i class="fas fa-file-excel"></i> ',
+                        titleAttr: 'Exportar a Excel',
+                        title: 'Fundación Un Lugar Donde Puedes Crecer',
+                        messageTop: 'Usuarios',
+                        className: 'btn btn-success'                   
+                        
+                    },
+                    {
+                        extend: 'pdfHtml5',
+                        text: '<i class="fas fa-file-pdf"></i> ',
+                        orientation: 'landscape',
+                        titleAttr: 'Exportar a PDF',
+                        title: 'Fundación Un Lugar Donde Puedes Crecer',
+                        messageTop: 'Usuarios',
+                        className: 'btn btn-danger'
+                    },
+                    {
+                        extend: 'print',
+                        text: '<i class="fa fa-print"></i> ',
+                        orientation: 'landscape',
+                        titleAttr: 'Imprimir',
+                        title: 'Fundación Un Lugar Donde Puedes Crecer',
+                        messageTop: 'Usuarios',
+                        className: 'btn btn-info'
+                    },
+                ]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-12:eq(0)');
+        });
+    </script>
+{% endblock javascript %}

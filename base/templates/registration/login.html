@@ -1,0 +1,119 @@
+{% extends 'partials/body-login.html' %}
+{% load static %}
+
+{% block cuerpo %}
+ <div class="container w-70 bg-white mt-md-3 rounded shadow">
+    <div class="row align-items-lg-stretch m-1 p-3 mb-md-4">
+       <div class="col bg d-none d-lg-block col-md-5 col-lg-5 col-xl-6 rounded">
+          <p class="m-lg-4 mx-lg-auto" style="color: rgb(250, 252, 252);">Foto tomada del facebook de la fundación</p>
+
+        </div>
+              <div class="col">
+                  <div class="text-end">
+                      <img src="{% static 'img/logologin.png' %}" width="190" alt="">
+                  </div>
+                  <h3 class="fw-bold text-center mb-10 pt-lg-8" style="color: #008;">Sistema de Registro de Datos Beneficiarios</h3>
+                  <p class="m-3 fw-bold text-center mb-10 pt-lg-8" style="color: #008;">Funda</p>
+
+               <!--LOGIN formulario-->
+               <form method="post">
+                    {% csrf_token %}
+                    <div class="input-group">                        
+                      <div class="m-3 m-auto">    
+                           <p style="color: #008;" >Identificación</p>
+                         <div class="form-group m-0 placeholder=Usuario placeholder">                                                                            
+                           <label>🔒</label>
+                                {{form.username}}                              
+                         </div>
+                      </div>
+                        
+                      <div class="m-3 m-auto"> 
+                           <p style="color: #008;">Contraseña</p>
+                            <div class="form-group m-0 placeholder=Contraseña placeholder">                                
+                                    <label>🗝️</label>                                                             
+                                    {{form.password}}                                                                  
+                                                          
+                           </div> 
+                       </div>                                
+                                                                                               
+                     </div>
+
+                     <div class="container-fluid row m-4">        
+
+                        <div class="col-lg-5 m-4 m-lg-1">
+                            <button type="submit" class="btn btn-outline-success btn-file">Iniciar sesión 🔑</button>      
+                        </div>
+                        
+                        <div class="form-check col-1 m-2">
+                            <input type="checkbox" name="connected" class="form-check-input">
+                            <label for="connected" class="form-check-label" style="color: #008;">Mantenerme conectado</label>
+                        </div>
+
+                    </div>               
+            </form>
+             <!--aqui termina el formulario-->
+                                                                
+
+                      <div class="my-3 text-center" style="color: #008;">                                                                                                         
+                          <span>Se te olvidó la contraseña?</span> <br> 
+                          <span><a href="{% url 'password_reset' %}">Recuperar contraseña</a></span>
+                      </div>
+                     
+
+                      <div class="container w-100" my-5>
+                        <div class="row text-center">
+                            <div class="col-12" style="color: #008;">Nuestras Redes Sociales</div>
+                        </div>
+                                                          
+
+                         <!--Redes sociales-->
+
+                        <div class="row">
+                            <div class="col">
+                              <a class="btn btn-outline-primary w-100 my-1"   href="https://m.facebook.com/people/Fundaci%C3%B3n-Un-Lugar-Donde-Puedes-Crecer/100064761306510/">
+                                  
+                                    <div class="row align-items-center">
+                                        <div class="col-2">
+                                            <img src="{% static 'img/facebook1.png' %}" width="32" alt="">
+ 
+                                        </div>
+ 
+                                        <div class="col-10 text-center">
+                                               Facebook
+                                        </div> 
+                                    </div>                                    
+                              </a>
+                                
+                            </div>
+
+                            <div class="col">
+                              <a class="btn btn-outline-danger w-100 my-1"    href="https://www.youtube.com/channel/UCwAPUrDNqpWzym_g4deLRaw">
+                                  <div class="row align-items-center">
+                                      <div class="col-2">
+                                          <img src="{% static 'img/youtube1.PNG' %}" width="32" alt="">
+
+                                      </div>
+
+                                      <div class="col-10 text-center">
+                                          Youtube
+                                      </div>
+
+                                  </div>
+
+                              </a>
+                                                          
+                             </div>                            
+                                                             
+                      </div>                    
+              
+              </div>   
+
+          </div>   
+     </div>
+ </div>
+
+    {% include 'partials/js.html' %}
+    
+{% endblock cuerpo %}
+    
+

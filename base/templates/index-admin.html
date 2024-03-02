@@ -1,0 +1,125 @@
+{% extends 'partials/body.html' %}
+{% load static %}
+<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+<meta http-equiv="Pragma" content="no-cache">
+<meta http-equiv="Expires" content="0">
+{% block contenido %}
+
+<title>Funda Un Lugar - Principal</title>
+  <body style="background-color:  #f0f8ff">
+    
+        <div class="container card-body dtr-inline">
+               
+            <div class="text-lg-center m-3">
+           
+              <div class="small-box bg-info">
+                <div class="inner">
+                  <h3> {{cantidad_usuarios}} </h3>
+  
+                  <p>Usuarios Registrados</p>
+                </div>
+                <div class="icon">
+                  <i class="ion ion-person-add"></i>
+                </div>
+                <a href="{% url 'usuarios' %}" class="small-box-footer">Más Información <i class="fas fa-arrow-circle-right"></i></a>
+              </div>
+              
+            </div>                  
+                       
+          </div>
+        
+        </div>
+        
+  
+    <!--Hora reloj digital-->
+    <div class="text-center m-2" style="color: #008">
+      <script type="text/javascript">
+          function startTime(){
+          today=new Date();
+          h=today.getHours();
+          m=today.getMinutes();
+          s=today.getSeconds();
+          m=checkTime(m);
+          s=checkTime(s);
+          document.getElementById('reloj').innerHTML=h+":"+m+":"+s;
+          t=setTimeout('startTime()',500);}
+          function checkTime(i)
+          {if (i<10) {i="0" + i;}return i;}
+          window.onload=function(){startTime();}
+          </script>
+          <div id="reloj" style="font-size:50px; background-color: rgb(200, 228, 249);"></div> 
+          
+          <!--Fecha calendario-->
+
+          <script type="text/javascript">
+              //<![CDATA[
+              function makeArray() {
+              for (i = 0; i<makeArray.arguments.length; i++)
+              this[i + 1] = makeArray.arguments[i];}
+              var months = new makeArray('Enero','Febrero','Marzo','Abril','Mayo',
+              'Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre');
+              var d=new Date();
+              var dia=new Array(7);
+              dia[0]="Domingo";
+              dia[1]="Lunes";
+              dia[2]="Martes";
+              dia[3]="Miércoles";
+              dia[4]="Jueves";
+              dia[5]="Viernes";
+              dia[6]="Sábado";
+              document.write("Hoy es: " + dia[d.getDay()]);
+              var date = new Date();
+              var day = date.getDate();
+              var month = date.getMonth() + 1;
+              var yy = date.getYear();
+              var year = (yy < 1000) ? yy + 1900 : yy;
+              document.write(", " + day + " de " + months[month] + " del " + year);
+              //]]>
+              </script>    
+     
+</div>
+
+<main>
+
+  <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                    
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="{% static 'img/programasf.JPG' %}" class="d-block w-70 m-3 p-lg-5 mx-auto" alt="...">
+        </div>
+
+        <div class="carousel-item">
+          <img src="{% static 'img/misionf.JPG' %}" class="d-block w-70 m-3 p-lg-5 mx-auto" alt="...">
+        </div>
+
+        <div class="carousel-item">
+          <img src="{% static 'img/visionf.JPG' %}" class="d-block w-70 m-3 p-lg-5 mx-auto" alt="...">
+        </div>
+      </div>
+    </div> 
+        
+</main>
+
+<div class="text-center text-center">
+  <h2 style="color: #008" class="m-5 fs-3">"Historia de nuestra fundación, ¿Cómo comenzamos y por qué nacimos?"</h2>
+  <p style="color: #008" class="m-lg-5 fs-5">En el año 2011 abrimos por primera vez como comedor comunitario. Nuestro objetivo era brindar alimentación a los niños de bajos recursos que al llegar de su jornada escolar no contaban con esta garantía mínima en su hogar. 
+  Gracias a las donaciones, apadrinamientos y a los voluntarios que se han unido con los años, hemos crecido y aprendido muchísimo. Creemos que el cambio de la sociedad se puede lograr por medio de las nuevas generaciones con mentes, espíritus, y sueños que como 
+  Fundación queremos apoyar. Actualmente con 11 años de operación, no paramos de soñar.</p>
+  </div>    
+  
+  <iframe width="560" height="315" src="https://www.youtube.com/embed/wohaacZfGkE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen class="d-block w-70 m-3 p-lg-5 mx-auto"></iframe>
+
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.715422451078!2d-74.16289962610784!3d4.644764242142218!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9c37435d463f%3A0x84e6c012340187c5!2sFundacion%20Un%20Lugar%20Donde%20Puedes%20Crecer!5e0!3m2!1ses!2sco!4v1688006551752!5m2!1ses!2sco" width="800" height="600" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" class="d-block w-70 m-3 p-lg-5 mx-auto"></iframe>
+                      
+     
+</body>
+   
+
+{% endblock contenido %}
+
+
+{% block javascript %}
+
+
+{% endblock javascript %}
